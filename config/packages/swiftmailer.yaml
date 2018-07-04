@@ -1,3 +1,14 @@
 swiftmailer:
-    url: '%env(MAILER_URL)%'
-    spool: { type: 'memory' }
+    # url: '%env(MAILER_URL)%'
+    transport: "%mailer_transport%"
+    auth_mode: "%mailer_auth_mode%"
+    host:      "%mailer_host%"
+    encryption: "%mailer_encryption%"
+    port:      "%mailer_port%"
+    username:  "%env(MAILER_USER)%"
+    password:  "%env(MAILER_PASSWORD)%"
+    spool:     { type: memory }
+    stream_options:
+        ssl:
+            verify_peer: false
+            verify_peer_name: false
